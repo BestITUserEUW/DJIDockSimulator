@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "DJIDockSimulator",
+            "includePath": [
+                "build/deps/install/include"
+            ],
+            "cppStandard": "gnu++23",
+            "compilerPath": "/usr/bin/g++-14",
+            "intelliSenseMode": "${default}"
+        }
+    ],
+    "version": 4
+}

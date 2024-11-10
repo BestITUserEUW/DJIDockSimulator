@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.18)
+
+project("@ST_ARGS_TARGET@" NONE)
+
+include(ExternalProject)
+
+set(CMAKE_ARGS @ST_ARGS_CMAKE_ARGS@)
+set(REST @ST_ARGS_UNPARSED_ARGUMENTS@)
+
+message(STATUS "[ExtBuilder] Preparing project: ${PROJECT_NAME} with args:")
+foreach(arg IN LISTS CMAKE_ARGS)
+    message(STATUS "-- ${arg}")
+endforeach()
+
+message(STATUS "[ExtBuilder] Unparsed:")
+foreach(arg IN LISTS REST)
+    message(STATUS "-- ${arg}")
+endforeach()
+
+ExternalProject_add(
+    ${PROJECT_NAME}
+    ${REST}
+    GIT_SHALLOW ON
+    CMAKE_ARGS "${CMAKE_ARGS}"
+)
